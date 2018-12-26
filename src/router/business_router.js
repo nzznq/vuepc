@@ -5,9 +5,6 @@ const businessRouter = [{
 	path: "/test",
   	name: "test",
   	component: _import("test/test"),
-  	meta:{
-  		keepAlive: true
-  	}
 }]
 
 export default businessRouter;
