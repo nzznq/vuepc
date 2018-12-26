@@ -1,5 +1,14 @@
 <template>
     <div class="home">
+        <div class="header">
+            <div class="logo">
+                <img src="./image/logo.png" alt="logo"> 
+                <img src="./image/logo-title.png" alt="logo-tit">
+            </div>
+        </div>
+        <div class="section">
+            <div class="logo-pic"></div>
+        </div>
         <div class="login-wrap">
             <div class="login-box">
                 <div class="title">登陆系统</div>
@@ -16,7 +25,7 @@
 <script>
     import { passwordEncode } from '@/utils/common.js'
     import service from './service'
-    import { getToken,setToken,removeToken } from '@/utils/common'
+    import { getToken, setToken, removeToken } from '@/utils/common'
     import { Message } from 'element-ui'
     export default {
         data() {
@@ -30,7 +39,7 @@
         methods: {
             login() {
                 let infoEncode = passwordEncode(this.formData)
-                service.login(infoEncode.userId, infoEncode.password).then( data => {
+                service.login(infoEncode.userId, infoEncode.password).then(data => {
                     if (data && data.mxToken) {
                         setToken(data.mxToken)
                         sessionStorage.setItem('userInfo', JSON.stringify(data));
@@ -56,18 +65,48 @@
     .home {
         width: 100%;
         height: 100%;
-        background: #000;
+        display: flex;
+        flex-direction: column;
+
+        .header {
+            height: 12%;
+            display: flex;
+            align-items: center;
+            padding-left: 15%;
+            .logo {
+                img:first-child {
+                    margin-right:30px;
+                }
+            }
+        }
+
+        .section {
+            flex: 1;
+            background: url(./image/login_bg.png) no-repeat;
+            background-size: 100% 100%;
+
+            .logo-pic {
+                position: absolute;
+                width: 581px;
+                height: 562px;
+                top: 55%;
+                left: 15%;
+                margin-top: -281px;
+                background: url(./image/login_pic.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        }
 
         .login-wrap {
             position: absolute;
-            top: 100px;
-            right: 88px;
+            top:  372px;
+            right: 388px;
         }
 
         .login-box {
             border-radius: 14px;
             width: 320px;
-            height: 360px;
+            height: 300px;
             background: #fff;
             padding: 15px 25px;
         }

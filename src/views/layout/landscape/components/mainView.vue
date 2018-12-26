@@ -21,7 +21,7 @@
 <style lang="scss" scoped>
     .main-view {
         height: 100%;
-        padding: 30px;
+        padding: 10px;
     }
 
     /*fade-transform*/

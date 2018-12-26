@@ -21,6 +21,14 @@ export function removeToken() {
 }
 
 /**
+ * 引入 路由组件
+ * @param file 文件在views下的地址 
+ */
+export function _import(file) {
+    return require('@/views/' + file + '.vue').default
+}
+
+/**
  * 登陆 账号密码RSA加密
  * @param obj 账号密码
  * @returns obj 加密后的账号密码

@@ -1,5 +1,4 @@
-const _import = require('./_import_module');	//模块加载方法
-
+import { _import } from '../utils/common'   //模块加载方法
 
 const businessRouter = [{
 	path: "/test",

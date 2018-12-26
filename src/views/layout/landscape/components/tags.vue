@@ -1,22 +1,31 @@
 <template>
-    <div class="tags-view">tags-view</div>
+    <ul class="tags-view">
+        <li v-for="(item,index) in keepMenu" class="tag-item">text</li>
+    </ul>
 </template>
 
 <script>
     export default {
         data() {
             return {
-                
+                keepMenu: [11]
             }
         },
     }
 </script>
 
 <style lang="scss" scoped>
-    .tags-view{
-        height: 34px;
+    .tags-view {
         border-top: 1px solid #ccc;
-        line-height: 34px;
-        padding: 0 15px
+        padding: 6px 15px;
+
+        .tag-item {
+            padding: 3px 8px;
+            border: 1px solid #ccc;
+            float: left;
+            margin-right: 10px;
+            border-radius: 6px;
+            cursor:pointer;
+        }
     }
 </style>

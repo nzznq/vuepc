@@ -32,7 +32,6 @@
             }
         },
         mounted() {
-            console.log(this.userInfo.username)
         }
     }
 </script>
