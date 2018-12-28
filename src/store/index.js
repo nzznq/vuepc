@@ -5,13 +5,15 @@ import getters from './getters'
 
 import layoutt from './modules/layout'
 import user from './modules/user'
+import tags from './modules/tags'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
     modules: {
         layoutt,
-        user
+        user,
+        tags
         //....       引入的模块
     },
     getters

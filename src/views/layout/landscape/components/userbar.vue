@@ -2,7 +2,7 @@
     <div class="userbar">
         <el-dropdown size="medium" @command="handleCommand">
             <span class="el-dropdown-link">
-                <i class="iconfont icon-wodered"></i>{{userInfo.userName?userInfo.userName:'没有Key值'}}<i class="el-icon-arrow-down el-icon--right"></i>
+                <i class="sidebar-icon iconuser"></i>{{userInfo.userName?userInfo.userName:'没有Key值'}}<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="个人信息">个人信息</el-dropdown-item>
@@ -40,8 +40,11 @@
         cursor: pointer;
     }
 
-    .iconfont {
+    .userbar .iconuser {
         float: left;
-        font-size: 18px;
+        margin-top: 20px;
+    }
+    .userbar:hover .iconuser{
+        background-position: -25px -204px;
     }
 </style>

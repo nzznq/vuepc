@@ -8,16 +8,22 @@ const routerModule = [{
 	path: "/login",
 	name: 'login',
 	component: _import("login/login")
-},{
-  	path: "/",
+}, {
+	path: "/",
 	name: "main",
-  	component: _import("layout/landscape/landscape"),
-  	children: [].concat(businessRouter)
+	redirect: "/test",
+	component: _import("layout/landscape/landscape"),
+	children: [
+		{
+			path: 'redirect/:path*',
+			component: _import('redirect/redirect')
+		}
+	].concat(businessRouter)
 }]
 
 Vue.use(Router);
 export default new Router({
 	mode: "history",
-  	base: process.env.BASE_URL,
-  	routes: routerModule
+	base: process.env.BASE_URL,
+	routes: routerModule
 });

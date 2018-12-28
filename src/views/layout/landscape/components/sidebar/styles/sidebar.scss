@@ -1,12 +1,13 @@
 
 .sidebar-container {
-    z-index: 100000;
+    z-index: 1000;
     position: relative;
+    background: #fff;
     .horizontal-collapse-transition {
         transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
     }
     transition: width .3s;
-    width: 180px !important;
+    width: 220px !important;
     height: 100%;
     overflow: hidden;
     a {
@@ -17,11 +18,16 @@
         border: none;
         width: 100% !important;
     }
+    .el-submenu {
+        &:hover .sidebar-icon{
+            background-position-x: -25px ;
+        }
+    }
 }
   
 .hideSidebar {
     .sidebar-container {
-        width: 45px !important;
+        width: 60px !important;
     }
     .submenu-title-noDropdown {
         padding-left: 9px !important;
@@ -31,8 +37,11 @@
         }
     }
     .el-submenu {
+        &:hover .sidebar-icon{
+            background-position-x: -25px ;
+        }
         &>.el-submenu__title {
-            padding-left: 13px !important;
+            padding-left: 20px !important;
             &>span {
                 height: 0;
                 width: 0;
@@ -54,4 +63,27 @@
 .el-menu--collapse .el-menu .el-submenu {
     min-width: 180px !important;
 }
-  
+
+.sidebar-icon{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 6px;
+    background: url(../logo/image/icon.png) no-repeat;
+}
+
+.iconry{
+    background-position:0px -105px;
+}
+.iconqx{
+    background-position:0px -129px;
+}
+.iconzm{
+    background-position:0px -145px;
+}
+.iconqy{
+    background-position:0px -179px;
+} 
+.iconuser{
+    background-position:0px -204px;
+} 

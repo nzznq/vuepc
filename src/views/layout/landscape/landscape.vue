@@ -10,14 +10,15 @@
 				</div>
 				<userbar class="userbox" :userInfo = "userInfo"></userbar>
 			</div>
-			<tags />
 			<div class="content-main">
+				<tags />
 				<main-view />
 			</div>
 		</div>
 	</div>
 </template>
 <script>
+	import { MessageBox  } from 'element-ui'
 	import { mapActions, mapGetters } from 'vuex'
 	import { sidebar, userbar, tags, mainView } from './components'
 	export default {
@@ -41,14 +42,18 @@
 				this.setSidebar()
 			}
 		},
+		mounted() {
+		},
 	}
 </script>
 <style scoped lang="scss">
 	.app-wrap {
 		width: 100%;
 		height: 100%;
+		min-width: 1200px;
 		display: flex;
 		flex-direction: row;
+		overflow: hidden;
 
 		.app-left {
 			height: 100%;
@@ -86,7 +91,10 @@
 			}
 
 			.content-main {
+				padding: 10px;
 				flex: 1;
+				display: flex;
+				flex-direction: column;
 				background: #999;
 				background: #EEF2F5;
 			}

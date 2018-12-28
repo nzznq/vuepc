@@ -9,11 +9,14 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex";
     export default {
         data() {
             return {
-                cachedViews: []
             }
+        },
+        computed: {
+            ...mapGetters([ "cachedViews" ])
         },
     }
 </script>
@@ -21,7 +24,8 @@
 <style lang="scss" scoped>
     .main-view {
         height: 100%;
-        padding: 10px;
+        border-radius: 8px; 
+        overflow: hidden;
     }
 
     /*fade-transform*/

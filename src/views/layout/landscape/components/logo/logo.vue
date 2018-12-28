@@ -3,13 +3,13 @@
     <transition name="fade">
       <span v-if="isCollapse" class="logo-wrap">
         <template>
-          <div class="logo-bg" v-if="isCollapse"></div>
+          <div class="logo-sm bgicon" v-if="isCollapse"></div>
         </template>
       </span>
     </transition>
     <transition name="fade">
       <template v-if="!isCollapse">
-        <span class="logo_title" key="1">UPMS</span>
+          <div class="logo-big bgicon"></div>
       </template>
     </transition>
   </div>
@@ -32,7 +32,7 @@
   }
 
   .fade-enter-active {
-    transition: opacity 2.5s;
+    transition: opacity 2.8s;
   }
 
   .fade-enter,
@@ -45,9 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 64px;
-    line-height: 64px;
-    text-align: center;
+    height: 125px;
     font-size: 20px;
     font-weight: 600;
     overflow: hidden;
@@ -73,6 +71,20 @@
   .logo-wrap {
     width: 100%;
     height: 100%;
-    padding: 10px 5px;
+    padding: 26px 10px;
+  }
+  .bgicon{
+    background: url(./image/icon.png) no-repeat;
+  }
+  .logo-big{
+    width: 93px;
+    height: 100px;
+    background-position: 0px 0px; 
+  }
+  .logo-sm{
+    width: 40px;
+    height: 35px;
+    background-size: 100%;
+
   }
 </style>

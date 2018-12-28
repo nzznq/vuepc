@@ -1,5 +1,6 @@
 import router from '../router/router'
-
+import store from '../store'
+import { MessageBox } from 'element-ui'
 import {
 	getToken,
 } from '@/utils/common' // getToken from cookie
@@ -13,6 +14,16 @@ router.beforeEach((to, from, next) => {
 				path: '/'
 			})
 		} else{
+			if(sessionStorage.getItem('userInfo') == null) {
+				MessageBox.confirm('session过期，请重新登录',  '确定登出', {
+				confirmButtonText: '重新登录',
+				type: 'warning'
+				}).then(() => {
+					store.dispatch('FedLogOut').then(() => {
+						location.reload();
+					});
+				});
+			}
 			next()
 		}
 	} else {

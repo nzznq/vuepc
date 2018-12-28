@@ -6,7 +6,7 @@ import {
 } from './lib/RSA'
 
 
-const TokenKey = 'Admin-Token'
+const TokenKey = 'Demo-Admin-Token'
 
 export function getToken() {
     return Cookies.get(TokenKey)
