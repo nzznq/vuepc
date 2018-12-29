@@ -25,16 +25,12 @@
 </template>
 
 <script>
-    import scrollBar from '@/components/scrollbar/scrollbar'
     export default {
         name: 'demo1',
         data() {
             return {
                 msg:"我是demo1"
             }
-        },
-        components: {
-            scrollBar
         },
         methods: {
             changeMsg() {
