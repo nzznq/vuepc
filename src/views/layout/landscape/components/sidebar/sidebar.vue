@@ -21,34 +21,34 @@
                     path: '/1',
                     icon: 'iconry',
                     children: [{
-                        label: "人员管理",
+                        label: "test",
                         path: '/test',
                     }, {
-                        label: "部门管理",
-                        path: '/demo1',
+                        label: "菜单1-1",
+                        path: '',
                         children: [{
-                            label: "艾普智诚",
-                            path: '/demo1',
+                            label: "菜单1-1-1",
+                            path: '',
                         }]
                     }],
                 }, {
                     label: "菜单权限管理",
-                    path: '/demo2',
+                    path: '/2',
                     icon: 'iconqx',
                     children: [{
-                        label: "人员权限管理",
-                        path: '/demo2',
+                        label: "菜单2-1",
+                        path: '',
                     }, {
-                        label: "报警信息管理",
-                        path: '/demo3',
+                        label: "菜单2-2",
+                        path: '',
                     }],
                 }, {
                     label: "企业信息管理",
-                    path: '/demo4',
+                    path: '/3',
                     icon: 'iconqy',
                     children: [{
-                        label: "企业logo维护",
-                        path: '/demo4',
+                        label: "菜单3-1",
+                        path: '',
                     }],
                 }]
             }

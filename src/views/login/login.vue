@@ -2,7 +2,7 @@
     <div class="home">
         <div class="header">
             <div class="logo">
-                <img src="./image/logo.png" alt="logo"> 
+                <img src="./image/logo.png" alt="logo">
                 <img src="./image/logo-title.png" alt="logo-tit">
             </div>
         </div>
@@ -31,28 +31,41 @@
         data() {
             return {
                 formData: {
-                    loginId: '',
-                    password: ''
+                    loginId: 'admin',
+                    password: 'admin'
                 }
             }
         },
         methods: {
             login() {
-                let infoEncode = passwordEncode(this.formData)
-                service.login(infoEncode.userId, infoEncode.password).then(data => {
-                    if (data && data.mxToken) {
-                        setToken(data.mxToken)
-                        sessionStorage.setItem('userInfo', JSON.stringify(data));
-                        this.$router.push('/')
-                    } else {
-                        Message({
-                            type: 'error',
-                            message: data.errMsg || '未知异常'
-                        });
-                    }
-                }).catch(error => {
-                    console.info(error);
-                })
+                if (this.formData.loginId == 'admin' && this.formData.password == 'admin') {
+                    setToken(this.formData.password)
+                    let userInfo = {}
+                    userInfo.userId = '12345678'
+                    userInfo.userName = 'admin'
+                    sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+                    this.$router.push('/')
+                } else {
+                    Message({
+                        type: 'error',
+                        message: '密码错误'
+                    });
+                }
+                //let infoEncode = passwordEncode(this.formData)
+                // service.login(infoEncode.userId, infoEncode.password).then(data => {
+                //     if (data && data.mxToken) {
+                //         setToken(data.mxToken)
+                //         sessionStorage.setItem('userInfo', JSON.stringify(data));
+                //         this.$router.push('/')
+                //     } else {
+                //         Message({
+                //             type: 'error',
+                //             message: data.errMsg || '未知异常'
+                //         });
+                //     }
+                // }).catch(error => {
+                //     console.info(error);
+                // })
             }
         },
         mounted() {
@@ -73,9 +86,10 @@
             display: flex;
             align-items: center;
             padding-left: 15%;
+
             .logo {
                 img:first-child {
-                    margin-right:30px;
+                    margin-right: 30px;
                 }
             }
         }
@@ -99,7 +113,7 @@
 
         .login-wrap {
             position: absolute;
-            top:  372px;
+            top: 372px;
             right: 388px;
         }
 

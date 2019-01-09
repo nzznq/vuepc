@@ -18,7 +18,7 @@
                 :key="tag.path" tag="span" class="tags-view-item" @click.middle.native="closeSelectedTag(tag)"
                 @contextmenu.prevent.native="openMenu(tag,$event)">
                 {{ tag.title }}
-                <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
+                <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" v-if = "visitedViews.length != 1" />
             </router-link>
         </div>
         <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">

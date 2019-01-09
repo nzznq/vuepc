@@ -26,7 +26,7 @@ const routerModule = [{
 	children: [
 		{
 			path: 'redirect/:path*',
-			component: _import('redirect/redirect')
+			component: _import('layout/components/redirect/redirect')
 		}
 	].concat(businessRouter)
 }]
