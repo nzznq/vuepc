@@ -7,6 +7,12 @@ let getUserInfo = (token) =>api.post('/api/mxmxController/getUserInfo',{
 	token
 });
 
+/**
+ * 获取数据
+ */
+let getMenu = () =>api.get('/getMenu')
+
 export default {
-    getUserInfo
+    getUserInfo,
+    getMenu
 }

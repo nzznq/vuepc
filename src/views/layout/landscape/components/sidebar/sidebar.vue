@@ -2,7 +2,8 @@
     <div class="sidebar-container">
         <logo :isCollapse="sidebarFlag"></logo>
         <el-scrollbar wrap-class="scrollbar-wrapper">
-            <el-menu :show-timeout="200" :default-active="$route.path" :collapse="sidebarFlag" mode="vertical" router>
+            <el-menu :show-timeout="200" :default-active="$route.path" :collapse="sidebarFlag" background-color="rgb(0, 20, 42)"
+            text-color="rgba(255,255,255,0.7)" mode="vertical" router>
                 <sidebar-item v-for="item in menu" :item="item" :key="item.label"></sidebar-item>
             </el-menu>
         </el-scrollbar>

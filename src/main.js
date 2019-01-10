@@ -6,6 +6,7 @@ import store from './store'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import commonComponents from './components'
+import mock from './mock'
 
 import './styles/index.scss'	//全局样式
 

@@ -2,7 +2,7 @@
 .sidebar-container {
     z-index: 1000;
     position: relative;
-    background: #fff;
+    background: rgb(0, 20, 42);
     .horizontal-collapse-transition {
         transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
     }
@@ -24,7 +24,11 @@
         }
     }
 }
-  
+.sidebar-container /deep/ .el-menu-item:focus, .el-menu-item:hover,.el-submenu__title:hover,.el-menu-item.is-active {
+    background: transparent !important;
+    color: #fff !important;
+}
+
 .hideSidebar {
     .sidebar-container {
         width: 60px !important;

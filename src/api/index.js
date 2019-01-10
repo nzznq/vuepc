@@ -43,28 +43,33 @@ service.interceptors.response.use(
 			});
 			return Promise.reject();
 		}
-		const res = response.data;
-		if (res.errCode === 200 || res.errCode === '0') {
-			if(res.data != null){
-				return res.data;
-			}
-		} else if (res.errCode === 20003) {
-			MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', res.errMsg || '确定登出', {
-				confirmButtonText: '重新登录',
-				cancelButtonText: '取消',
-				type: 'warning'
-			}).then(() => {
-				store.dispatch('FedLogOut').then(() => {
-					location.reload();
+		//Mock 响应
+		if(response.status == 200){
+			return response.data
+		}else{
+			const res = response.data;
+			if (res.errCode === 200 || res.errCode === '0') {
+				if(res.data != null){
+					return res.data;
+				}
+			} else if (res.errCode === 20003) {
+				MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', res.errMsg || '确定登出', {
+					confirmButtonText: '重新登录',
+					cancelButtonText: '取消',
+					type: 'warning'
+				}).then(() => {
+					store.dispatch('FedLogOut').then(() => {
+						location.reload();
+					});
 				});
-			});
-			return Promise.reject('error');
-		} else {
-			Message({
-				type: 'error',
-				message: res.errMsg || '未知异常'
-			});
-			return Promise.reject('error');
+				return Promise.reject('error');
+			} else {
+				Message({
+					type: 'error',
+					message: res.errMsg || '未知异常'
+				});
+				return Promise.reject('error');
+			}
 		}
 		
 	}, error => {
