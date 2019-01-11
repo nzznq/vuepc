@@ -18,17 +18,25 @@ const routerModule = [{
 	path: "/login",
 	name: 'login',
 	component: _import("login/login")
-}, {
+}, 
+// {
+// 	path: "/",
+// 	name: "main",
+// 	redirect: "/test",
+// 	component: _import("layout/landscape/landscape"),
+// 	children: [
+// 		{
+// 			path: 'redirect/:path*',
+// 			component: _import('layout/components/redirect/redirect')
+// 		}
+// 	].concat(businessRouter)
+// }, 
+{
 	path: "/",
 	name: "main",
 	redirect: "/test",
-	component: _import("layout/landscape/landscape"),
-	children: [
-		{
-			path: 'redirect/:path*',
-			component: _import('layout/components/redirect/redirect')
-		}
-	].concat(businessRouter)
+	component: _import("layout/vertical/vertical"),
+	children:[].concat(businessRouter)
 }]
 
 Vue.use(Router);

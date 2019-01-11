@@ -1,24 +1,28 @@
 <template>
-    <div class="home">
-        <div class="header">
-            <div class="logo">
-                <img src="./image/logo.png" alt="logo">
-                <img src="./image/logo-title.png" alt="logo-tit">
+    <div class="login-page">
+        <el-form ref="loginForm" :model="formData" :rules="loginRules" class="login-form" auto-complete="on"
+            label-position="left">
+            <div class="title-container">
+                <h3 class="title">系统登陆</h3>
             </div>
-        </div>
-        <div class="section">
-            <div class="logo-pic"></div>
-        </div>
-        <div class="login-wrap">
-            <div class="login-box">
-                <div class="title">登陆系统</div>
-                <form class="form-con">
-                    <input type="text" placeholder="请输入用户名或者邮箱" v-model="formData.loginId">
-                    <input type="password" placeholder="请输入密码" v-model="formData.password">
-                    <div class="login-btn" @click="login">登陆</div>
-                </form>
-            </div>
-        </div>
+
+            <el-form-item prop="loginId">
+                <span class="icon-container">
+                    <i class="iconfont icon-wodered"></i>
+                </span>
+                <el-input v-model="formData.loginId" placeholder="请输入账号" name="username" type="text" auto-complete="on" />
+            </el-form-item>
+
+            <el-form-item prop="password">
+                <span class="icon-container">
+                    <!-- <svg-icon icon-class="password" /> -->
+                </span>
+                <el-input type="password" v-model="formData.password" placeholder="输入密码" name="password" auto-complete="on"
+                    @keyup.enter.native="handleLogin" />
+            </el-form-item>
+            <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登
+                陆</el-button>
+        </el-form>
     </div>
 </template>
 
@@ -30,14 +34,20 @@
     export default {
         data() {
             return {
+                loading: false,
                 formData: {
                     loginId: 'admin',
                     password: 'admin'
-                }
+                },
+                loginRules: {
+                    loginId: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+                    password: [{ required: true, message: '请输密码', trigger: 'blur' }]
+                },
             }
         },
         methods: {
-            login() {
+            handleLogin() {
+                this.loading = true
                 if (this.formData.loginId == 'admin' && this.formData.password == 'admin') {
                     setToken(this.formData.password)
                     let userInfo = {}
@@ -75,82 +85,59 @@
 </script>
 
 <style scoped lang="scss">
-    .home {
+    .login-page {
         width: 100%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
+        background: #2d3a4b;
 
-        .header {
-            height: 12%;
-            display: flex;
-            align-items: center;
-            padding-left: 15%;
-
-            .logo {
-                img:first-child {
-                    margin-right: 30px;
-                }
-            }
-        }
-
-        .section {
-            flex: 1;
-            background: url(./image/login_bg.png) no-repeat;
-            background-size: 100% 100%;
-
-            .logo-pic {
-                position: absolute;
-                width: 581px;
-                height: 562px;
-                top: 55%;
-                left: 15%;
-                margin-top: -281px;
-                background: url(./image/login_pic.png) no-repeat;
-                background-size: 100% 100%;
-            }
-        }
-
-        .login-wrap {
-            position: absolute;
-            top: 372px;
-            right: 388px;
-        }
-
-        .login-box {
-            border-radius: 14px;
-            width: 320px;
-            height: 300px;
-            background: #fff;
-            padding: 15px 25px;
-        }
-
-        .title {
-            font-size: 24px;
-            font-weight: 500;
-            color: #000
-        }
-
-        input {
-            box-sizing: border-box;
-            width: 100%;
-            height: 35px;
-            padding-left: 35px;
-            border: 1px solid #000;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-
-        .login-btn {
-            cursor: pointer;
-            background: #000;
-            margin-top: 40px;
-            border: none;
-            padding: 10px 0;
+        .title-container {
+            font-size: 26px;
+            color: #eee;
+            margin: 0px auto 40px auto;
             text-align: center;
-            font-size: 18px;
-            border-radius: 8px;
-            color: #fff
+            font-weight: bold;
+        }
+
+        .login-form {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 520px;
+            max-width: 100%;
+            padding: 35px 35px 15px 35px;
+            margin: 120px auto;
+
+            .icon-container {
+                padding: 6px 5px 6px 15px;
+                color: #889aa4;
+                vertical-align: middle;
+                width: 30px;
+                display: inline-block;
+            }
+        }
+
+        & /deep/ .el-form-item {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            color: #454545;
+        }
+
+        & /deep/ .el-input {
+            display: inline-block;
+            height: 47px;
+            width: 85%;
+
+            input {
+                background: transparent;
+                border: 0px;
+                -webkit-appearance: none;
+                border-radius: 0px;
+                padding: 12px 5px 12px 15px;
+                color: #eee;
+                height: 47px;
+                caret-color: #fff;
+            }
         }
     }
 </style>

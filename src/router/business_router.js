@@ -7,6 +7,14 @@ const businessRouter = [{
 	  meta: {
 		  title: 'test'
 	  }
+},{
+	path: "/demo",
+  	name: "demo",
+	  component: _import("test/demo"),
+	  meta: {
+		  title: 'demo',
+		  fullWidth:true
+	  }
 }]
 
 export default businessRouter;

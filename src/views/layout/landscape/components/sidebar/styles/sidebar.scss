@@ -24,10 +24,13 @@
         }
     }
 }
-.sidebar-container /deep/ .el-menu-item:focus, .el-menu-item:hover,.el-submenu__title:hover,.el-menu-item.is-active {
+.sidebar-container /deep/ .el-menu-item:focus, .el-menu-item:hover,.el-submenu__title:hover,.el-menu-item.is-active{
     background: transparent !important;
     color: #fff !important;
 }
+// .sidebar-container /deep/ .el-submenu__title i {
+//     color: #fff !important;
+// }
 
 .hideSidebar {
     .sidebar-container {
