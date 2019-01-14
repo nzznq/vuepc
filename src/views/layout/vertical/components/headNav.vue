@@ -2,11 +2,11 @@
     <div class="head-nav">
         <div class="nav-wrap" :class="{'nav-active':navFlag}">
             <ul class="nav-list" @mouseover="navFlag=true" @mouseleave="navFlag=false"> 
-                <li class="nav-item" v-for="item in menu">
-                    <span class="nav-item-title">{{item.title}}</span>
+                <li class="nav-item" v-for="(item,index) in menu">
+                    <span :class="['nav-item-title',{'first-active':firstActive == item }]">{{item.title}}</span>
                     <ul class="nav-item-list">
-                        <router-link :to="child.path" v-for="child in item.children" tag="li">
-                            <li class="menu-name" >{{child.name}}</li>
+                        <router-link :to="child.path" v-for="child in item.children" tag="li" active-class="active" exact>
+                            <li class="menu-name">{{child.name}}</li>
                         </router-link>
                     </ul>
                 </li>
@@ -21,6 +21,7 @@
         data() {
             return {
                 navFlag: false,
+                firstActive: false,
             }
         },
         props: {
@@ -32,6 +33,23 @@
         methods: {
             listhover() {
                 this.navFlag = true
+            },
+            menuActive(condition) {
+                for(let item of this.menu) {
+                    for(let child of item.children) {
+                        if(child.path == condition) {
+                            this.firstActive = item
+                        }
+                    }
+                }
+            }
+        },
+        mounted() {
+            this.menuActive(this.$route.path)
+        },
+        watch: {
+            $route(to,form){
+                this.menuActive(to.path)
             }
         },
     }
@@ -83,6 +101,14 @@
                         &:hover {
                             color: #2277da;
                         }
+                    }
+
+                    .active {
+                        color: #2277da;
+                    }
+
+                    .first-active {
+                        background: rgba(0,0,0,0.3);
                     }
                 }
             }

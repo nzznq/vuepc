@@ -23,26 +23,26 @@
                         name: "test",
                         path: "/test"
                     },{
+                        name: "xxxxxxx",
+                        path: "null"
+                    }]
+                },{
+                    title:"一级菜单",
+                    children:[{
                         name: "demo",
                         path: "/demo"
                     }]
                 },{
                     title:"一级菜单",
                     children:[{
-                        name: "test",
-                        path: ""
+                        name: "xxxxxxx",
+                        path: "null"
                     }]
                 },{
                     title:"一级菜单",
                     children:[{
-                        name: "test",
-                        path: ""
-                    }]
-                },{
-                    title:"一级菜单",
-                    children:[{
-                        name: "test",
-                        path: ""
+                        name: "xxxxxxx",
+                        path: "null"
                     }]
                 }]
             }
